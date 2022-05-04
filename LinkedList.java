@@ -11,20 +11,24 @@ class LinkedList
         this.next = next;
     }
 
-    public static void addListItem ()
+    public void addListItem (int number)
     //add item to linked list, keep order of the list and put item to the right place.
-    {
-        return; 
+    {   
+        if (this.next == null)
+        {
+            this.next = new LinkedList(number, null);
+        }
+        
     }
 
-    public static boolean searchListItem(int number)
+    public boolean searchListItem(int number)
     //go through list to find number, return true if list contains number, else false
     {
         return true;
     }
 
 
-    public static void removeListItem()
+    public void removeListItem()
     //should remove a list item and link the item before and the next item togehter. linkage of list should remain existing
     {
 
