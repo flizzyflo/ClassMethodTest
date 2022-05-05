@@ -13,11 +13,11 @@ class LinkedList
     }
 
     //Inherited toString() Method needs to be overridden
-    @Override
-    public String toString()
-    {
-        return "string to be implemented here";
-    }
+    // @Override
+    // public String toString()
+    // {
+    //     return "string to be implemented here";
+    // }
     
     public void addListItem (int number)
     //add item to linked list, keep order of the list and put item to the right place.
@@ -30,17 +30,19 @@ class LinkedList
 
             this.node = number;
             this.next = new LinkedList(tempNode, tempNext);
+            return;
             
         }
         
         else if (this.next == null)
         {
             this.next = new LinkedList(number, null);
+            return;
         }
 
         else
         {
-            this.addListItem(number);
+            this.next.addListItem(number);
         }
 
     }
@@ -93,12 +95,9 @@ class LinkedList
         if (this.next == null)
         {
             System.out.print("null");
+            System.out.println("");
             return;
         }
         
         this.next.printOutList();
     }
-
-
-}
-
