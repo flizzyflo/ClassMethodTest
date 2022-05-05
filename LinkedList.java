@@ -122,7 +122,7 @@ class LinkedList
     //In-place operation
 
     {
-
+        return;
     }
 
 }
