@@ -13,15 +13,19 @@ class LinkedList
         this.next = next;
     }
 
-    //Inherited toString() Method needs to be overridden
     @Override
     public String toString()
+    //Overriden from object base class.
+    //Classmethod to define the string representation of the list object
+    //Is called when print / println is called with object as argument
+
     {
         return this.printOutList();
     }
     
     public void addListItem (int number)
-    //add item to linked list, keep order of the list and put item to the right place.
+    //Adds item to LinkedList Object.Automatically keeps track of the list order and inserts new item at the right spot.
+
     {   
         
         if (this.node > number) 
@@ -49,7 +53,8 @@ class LinkedList
     }
 
     public boolean searchListItem(int number)
-    //go through list to find number, return true if list contains number, else false
+    //Searches an item within the list. Iterative search, node by node.
+
     {   
         
         if (this.node == number)
@@ -67,7 +72,8 @@ class LinkedList
     }
 
     public void removeListItem(int number)
-    //should remove a list item and link the item before and the next item togehter. linkage of list should remain existing
+    //Removes a list item. Links the remaining items together togehter. Linkage of list remains.
+
     {
 
         if (this.node != number && this.next != null)
@@ -90,6 +96,9 @@ class LinkedList
     }
 
     private String printOutList()
+    //Printmethod which will be called in toString() method. 
+    //Defines the representation of the class instance when print is used.
+
     {
         reprString.append(this.node + " -> ");
             
@@ -107,9 +116,12 @@ class LinkedList
         return reprString.toString();
     }
 
-    public static void main (String [] args)
+    public void invertLinkedList()
+    //Inverts the order of the items of the linked list.
+    //In-place operation
 
     {
-       
+
     }
+
 }
