@@ -4,6 +4,7 @@ class LinkedList
 {
     int node;
     LinkedList next;
+    StringBuilder reprString = new StringBuilder();
     
     //Constructor of LinkedList Class
     LinkedList(int node, LinkedList next)
@@ -13,11 +14,11 @@ class LinkedList
     }
 
     //Inherited toString() Method needs to be overridden
-    // @Override
-    // public String toString()
-    // {
-    //     return "string to be implemented here";
-    // }
+    @Override
+    public String toString()
+    {
+        return this.printOutList();
+    }
     
     public void addListItem (int number)
     //add item to linked list, keep order of the list and put item to the right place.
@@ -88,18 +89,27 @@ class LinkedList
 
     }
 
-    public void printOutList()
+    private String printOutList()
     {
-        System.out.print(this.node + " -> ");
+        reprString.append(this.node + " -> ");
+            
+        if (this.next != null)
+        {
+            reprString.append(this.next.printOutList());
+        };
         
         if (this.next == null)
         {
-            System.out.print("null");
-            System.out.println("");
-            return;
+            reprString.append("null");
+
         }
-        
-        this.next.printOutList();
+       
+        return reprString.toString();
     }
 
+    public static void main (String [] args)
+
+    {
+       
+    }
 }
