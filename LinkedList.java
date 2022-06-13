@@ -6,17 +6,19 @@ class LinkedList
     LinkedList next;
     StringBuilder reprString = new StringBuilder();
     
-    //Constructor of LinkedList Class
+    //Basic Constructor of LinkedList Class
 
     LinkedList(int node){
         this.node = node;
-    }
+        this.next = null;
+    };
 
+    //Overloaded Constructor which allows to create a '.next' entry while initialization
     LinkedList(int node, LinkedList next)
     {
         this.node = node;
         this.next = next;
-    }
+    };
 
     @Override
     public String toString()
@@ -26,79 +28,61 @@ class LinkedList
 
     {
         return this.printOutList();
-    }
+    };
     
     public void addListItem (int number)
     //Adds item to LinkedList Object.Automatically keeps track of the list order and inserts new item at the right spot.
 
     {   
-        
-        if (this.node > number) 
-        {
+        if (this.node > number){
             int tempNode = this.node;
             LinkedList tempNext = this.next; 
 
             this.node = number;
             this.next = new LinkedList(tempNode, tempNext);
-            return;
-            
         }
         
-        else if (this.next == null)
-        {
+        else if (this.next == null){
             this.next = new LinkedList(number, null);
-            return;
         }
 
-        else
-        {
+        else{
             this.next.addListItem(number);
         }
-
-    }
+    };
 
     public boolean searchListItem(int number)
     //Searches an item within the list. Iterative search, node by node.
 
     {   
-        
-        if (this.node == number)
-        {
+        if (this.node == number){
             return true;
         }
 
-        else if (this.node != number && this.next != null)
-        {
+        else if (this.node != number && this.next != null){
             return this.next.searchListItem(number);
-        }
+        };
 
         return false;
-        
-    }
+    };
 
     public void removeListItem(int number)
     //Removes a list item. Links the remaining items together togehter. Linkage of list remains.
 
     {
-
-        if (this.node != number && this.next != null)
-        {
+        if (this.node != number && this.next != null){
             this.next.removeListItem(number);
         }
 
-        else if (this.node == number)
-        {
+        else if (this.node == number){
             this.node = this.next.node;
             this.next = this.next.next;
-
         }
 
-        else if (this.searchListItem(number) == false)
-        {
-            System.out.println("Result: Number does not exist in ListItem");;
-        }
-
-    }
+        else if (this.searchListItem(number) == false){
+            System.out.println("Result: Number does not exist in this ListItem");;
+        };
+    };
 
     private String printOutList()
     //Printmethod which will be called in toString() method. 
@@ -107,38 +91,38 @@ class LinkedList
     {
         reprString.append(this.node + " -> ");
             
-        if (this.next != null)
-        {
+        if (this.next != null){
             reprString.append(this.next.printOutList());
-        };
-        
-        if (this.next == null)
-        {
-            reprString.append("null");
-
         }
+        
+        else if (this.next == null){
+            reprString.append("null");
+        };
        
         return reprString.toString();
-    }
+    };
 
     public int size(){
+        // returns the overall size of elements of the list excluding the null entry.
+        
         if (this.next == null){
             return 1;
         }
         else{
             return this.next.size() + 1;
         }
-        
-    }
+    };
 
     public int returnIndex(int number){
+        // returns the list index of the number passed in as argument. count starts at 0.
+
         if (this.node == number){
             return 0;
         }
         else{
             return this.next.returnIndex(number) + 1;
         }
-    }
+    };
 
     public void invertLinkedList()
     //Inverts the order of the items of the linked list.
@@ -146,17 +130,6 @@ class LinkedList
 
     {
         return;
-    }
+    };
 
-    public static void main(String[]args){
-
-        LinkedList l = new LinkedList(5);
-        LinkedList j = new LinkedList(6, l);
-        j.addListItem(7);
-        j.addListItem(11);
-        j.addListItem(12);
-        j.addListItem(55);
-        System.out.println(j);
-        System.out.println(j.returnIndex(12));
-    }
 }
