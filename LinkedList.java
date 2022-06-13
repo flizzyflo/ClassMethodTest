@@ -1,5 +1,4 @@
 
-
 class LinkedList
 
 {
@@ -8,6 +7,11 @@ class LinkedList
     StringBuilder reprString = new StringBuilder();
     
     //Constructor of LinkedList Class
+
+    LinkedList(int node){
+        this.node = node;
+    }
+
     LinkedList(int node, LinkedList next)
     {
         this.node = node;
@@ -117,6 +121,25 @@ class LinkedList
         return reprString.toString();
     }
 
+    public int size(){
+        if (this.next == null){
+            return 1;
+        }
+        else{
+            return this.next.size() + 1;
+        }
+        
+    }
+
+    public int returnIndex(int number){
+        if (this.node == number){
+            return 0;
+        }
+        else{
+            return this.next.returnIndex(number) + 1;
+        }
+    }
+
     public void invertLinkedList()
     //Inverts the order of the items of the linked list.
     //In-place operation
@@ -125,4 +148,15 @@ class LinkedList
         return;
     }
 
+    public static void main(String[]args){
+
+        LinkedList l = new LinkedList(5);
+        LinkedList j = new LinkedList(6, l);
+        j.addListItem(7);
+        j.addListItem(11);
+        j.addListItem(12);
+        j.addListItem(55);
+        System.out.println(j);
+        System.out.println(j.returnIndex(12));
+    }
 }
