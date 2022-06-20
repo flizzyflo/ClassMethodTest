@@ -1,3 +1,4 @@
+package LinkedList;
 
 class LinkedList
 
@@ -102,34 +103,35 @@ class LinkedList
         return reprString.toString();
     };
 
-    public int size(){
+    public int getListSize(){
         // returns the overall size of elements of the list excluding the null entry.
         
         if (this.next == null){
             return 1;
         }
         else{
-            return this.next.size() + 1;
+            return this.next.getListSize() + 1;
         }
     };
 
-    public int returnIndex(int number){
+    public int returnListItemIndex(int number){
         // returns the list index of the number passed in as argument. count starts at 0.
 
         if (this.node == number){
             return 0;
         }
         else{
-            return this.next.returnIndex(number) + 1;
+            return this.next.returnListItemIndex(number) + 1;
         }
     };
 
-    public void invertLinkedList()
-    //Inverts the order of the items of the linked list.
+    public static void invertLinkedList()
+    //Inverts the order of the items of the linked list. Implemented as static method.
     //In-place operation
 
     {
         return;
     };
 
+   
 }
