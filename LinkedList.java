@@ -1,7 +1,9 @@
-package LinkedList;
+// package LinkedList;
 
+/*
+ * class represents the list itself. manages the elements within the list.
+ */
 class LinkedList
-
 {
     int node;
     LinkedList next;
@@ -133,5 +135,4 @@ class LinkedList
         return;
     };
 
-   
 }
