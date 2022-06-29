@@ -2,7 +2,7 @@
 /*
  * Class represents every single node.
  */
-public class LinkedListElement {
+public class LinkedListElement implements LinkedListElementInterface{
     
     private int node;
     private LinkedListElement nextElement;
