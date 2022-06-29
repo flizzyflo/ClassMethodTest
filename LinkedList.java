@@ -3,7 +3,7 @@
 /*
  * class represents the list itself. manages the elements within the list.
  */
-class LinkedList
+class LinkedList implements LinkedListInterface
 {
     int node;
     LinkedList next;
