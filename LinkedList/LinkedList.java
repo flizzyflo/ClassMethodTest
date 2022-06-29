@@ -1,4 +1,7 @@
-// package LinkedList;
+package LinkedList;
+
+import LinkedList.Interfaces.LinkedListInterface;
+
 
 /*
  * class represents the list itself. manages the elements within the list.
